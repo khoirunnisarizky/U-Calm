@@ -126,13 +126,6 @@
                                 <rect key="frame" x="274" y="309" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ywr-C5-bST">
-                                <rect key="frame" x="185" y="689" width="47" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbg-23-gax">
                                 <rect key="frame" x="122" y="724" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -198,8 +191,8 @@
                         <outlet property="countBip" destination="DEF-P7-HTN" id="i3L-Nk-oTG"/>
                         <outlet property="countLabel" destination="Mrm-6E-0Ng" id="tcJ-2N-0X1"/>
                         <outlet property="heartAppeared" destination="FLS-Tb-qD0" id="Bep-q5-cno"/>
+                        <outlet property="slashOutlet" destination="KMy-di-5e4" id="l9g-W0-ZGA"/>
                         <outlet property="soundLabel" destination="Xbg-23-gax" id="0e8-Qt-3z4"/>
-                        <outlet property="totalLabel" destination="Ywr-C5-bST" id="UG5-OV-xVr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

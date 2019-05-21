@@ -9,12 +9,15 @@
 import UIKit
 import AVFoundation
 import AudioToolbox
+struct publicData{
+    static var counter : Int = 1
+}
 
 class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelegate {
 
     var audioPlayer : AVAudioPlayer!
     var countNumber : Int = 0
-    var totalNumber : Int = 0
+//    var totalNumber : Int = 0
     var bipTextField = UITextField()
     var bipEvery : String = ""
     
@@ -38,10 +41,12 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
     @IBOutlet weak var butir18: UIImageView!
     @IBOutlet weak var butir19: UIImageView!
     @IBOutlet weak var heartAppeared: UIImageView!
+    @IBOutlet weak var slashOutlet: UILabel!
     
     @IBOutlet weak var countBip: UILabel!
     @IBOutlet weak var countLabel: UILabel!
-    @IBOutlet weak var totalLabel: UILabel!
+    
+//    @IBOutlet weak var totalLabel: UILabel!
     @IBOutlet weak var soundLabel: UIButton!
     
     @IBAction func soundAction(_ sender: Any) {
@@ -57,9 +62,10 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
     
     @IBAction func repeatAction(_ sender: Any) {
         countNumber = 0
-        totalNumber = 0
+//        totalNumber = 0
         countLabel.text = "\(countNumber)"
-        totalLabel.text = "\(totalNumber)"
+        playSound(selectedSoundFileName: "repeat sound")
+//        totalLabel.text = "\(totalNumber)"
     }
     
     @IBAction func bipEveryButton(_ sender: Any) {
@@ -76,8 +82,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
             alert.dismiss(animated: true, completion: nil)
+            publicData.counter = Int(self.bipTextField.text ?? "1") ?? 1
             self.bipEvery = self.bipTextField.text!
-            self.countBip.text = self.bipTextField.text
+            self.countBip.text = String(publicData.counter)
         }))
         
         present(alert, animated: true, completion: nil)
@@ -110,15 +117,15 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
     }
     
     func setupCount() {
-        let boundNumber = Int(bipEvery)!
+        let boundNumber = publicData.counter
         if countNumber < boundNumber {
             countNumber += 1
         } else {
             countNumber = 1
         }
-        totalNumber += 1
+//        totalNumber += 1
         countLabel.text = "\(countNumber)"
-        totalLabel.text = "\(totalNumber)"
+//        totalLabel.text = "\(totalNumber)"
     }
     
     @objc func fullAnimation(_ sender: UIImageView) {
@@ -146,6 +153,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
         heartAppeared.isHidden = true
         countLabel.isHidden = false
         countBip.isHidden = false
+        slashOutlet.isHidden = false
         
         if soundLabel.currentImage == UIImage(named: "sounds on") {
             playSound(selectedSoundFileName: "tap D-Dzikr")
@@ -156,6 +164,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
             heartAppeared.isHidden = false
             countLabel.isHidden = true
             countBip.isHidden = true
+            slashOutlet.isHidden = true
             fadeOut()
         }
         
