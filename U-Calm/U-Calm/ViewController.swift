@@ -78,6 +78,7 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
             self.bipTextField = textField
             self.bipTextField.delegate = self //REQUIRED
             self.bipTextField.placeholder = "Bip every"
+            textField.keyboardType = .numberPad
         }
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
@@ -88,6 +89,8 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
         }))
         
         present(alert, animated: true, completion: nil)
+        countLabel.text = "0"
+        countNumber = 0
     }
     
     override func viewDidLoad() {
