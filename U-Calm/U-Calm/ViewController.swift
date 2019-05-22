@@ -152,6 +152,9 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
         setupTasbihAnimation(butirChoosen: butir18)
         setupTasbihAnimation(butirChoosen: butir19)
     
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+        
         setupCount()
         heartAppeared.isHidden = true
         countLabel.isHidden = false
