@@ -21,6 +21,13 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
 //    var totalNumber : Int = 0
     var bipTextField = UITextField()
     var bipEvery : String = ""
+    var p0 : CGPoint!
+    var p1 : CGPoint!
+    var p2 : CGPoint!
+    var butir1Position: CGPoint!
+    
+    var bezierPath = UIBezierPath()
+    var bezierPathXMax: CGFloat!
     
     @IBOutlet weak var butir1: UIImageView!
     @IBOutlet weak var butir2: UIImageView!
@@ -123,14 +130,99 @@ class ViewController: UIViewController, AVAudioPlayerDelegate, UITextFieldDelega
         view.addGestureRecognizer(tapGesture)
         heartAppeared.isHidden = true
         
+//        drawBezierPath()
+//        let dragPan = UIPanGestureRecognizer(target: self, action: #selector(dragButir1OnBezier(recognizer:)))
+//        butir1.addGestureRecognizer(dragPan)
+        
        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showAlert()
+        //set the butir1 center at randon point on Bezier path. Setting the starting point here
+//        butir1.center = p0
+        //store the initial position of butir1
+//        butir1Position = p0
+    }
+    /*
+     Draw Bezier Quad curve and get the path.
+     */
+    func drawBezierPath() {
+        //view x 207 view y 448
+        p0 = CGPoint(x: view.center.x - 86, y: view.center.y - 119)
+
+        p2  = CGPoint(x: view.center.x + 87, y: view.center.y - 119)
+
+        p1 = CGPoint(x: view.frame.width/2, y: 276)
+        print(p1.x)
+        print(p1.y)
+
+        bezierPath.move(to: p0)
+        bezierPath.addQuadCurve(to: p2, controlPoint: p1)
+
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = bezierPath.cgPath
+        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.strokeColor = UIColor.clear.cgColor
+        shapeLayer.lineWidth = 3.0
+        view.layer.addSublayer(shapeLayer)
+        butir1.translatesAutoresizingMaskIntoConstraints = true
+
+        //Store the max Y distance covered by UIbezierPath. It will be useful to calculate the intermidiate point on curve
+        // at the distance y from the start point po
+        bezierPathXMax = p2.x - p0.x
+
     }
 
+    
+    /* Refered from http://ericasadun.com/2013/03/25/calculating-bezier-points/
+     - params: start point, end point, control point and the time drawn factor between 0 to 1.
+     */
+    func getPointAtPercent(t: Float, start: Float, c1: Float, end: Float ) -> Float {
+        let t_: Float = (1.0 - t)
+        let tt_: Float = t_ * t_
+        let tt: Float = t * t
+
+        return start * tt_
+            + 2.0 * c1 * t_ * t
+            + end * tt
+    }
+
+
+    @objc func dragButir1OnBezier(recognizer: UIPanGestureRecognizer) {
+
+        let point = recognizer.location(in: view)
+        let distanceX = point.x - butir1Position.x
+        // get the value between 0 & 1. 0 represents and po and 1 represent p2.
+        var distanceXInRange = distanceX / bezierPathXMax
+        distanceXInRange = distanceXInRange > 0 ? distanceXInRange : -distanceXInRange
+
+        if distanceXInRange >= 1 || distanceXInRange <= 0 {
+            // already at the end of the curve. So need to drag
+            return
+        }
+
+        // get the x,y point on the Bezier path at a distance distanceYInRange from p.
+        let newY = getPointAtPercent(t: Float(distanceXInRange), start: Float(p0.y) , c1: Float(p1.y), end: Float(p2.y))
+
+        let newX = getPointAtPercent(t: Float(distanceXInRange), start: Float(p0.x) , c1: Float(p1.x), end: Float(p2.x))
+
+        // set the newLocation of the butir1
+        butir1.center = CGPoint(x: CGFloat(newX), y: CGFloat(newY))
+//        if p2.x-10...p2.x+10 ~= CGFloat(newX) && p2.y-10...p2.y+10 ~= CGFloat(newY) {
+//            self.butir1.frame.origin.x = 121
+//            self.butir1.frame.origin.y = 329
+//            butirLainAction()
+//        }
+        
+        
+        
+//        if CGFloat(newX) == p2.x && CGFloat(newY) == p2.y {
+//        butirLainAction()
+//        }
+
+    }
     
     func setupCount() {
         let boundNumber = publicData.counter

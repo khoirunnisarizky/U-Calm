@@ -7,18 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E408FCA22928DE2000B4493 /* tap D-Dzikr.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E408FC922928DE2000B4493 /* tap D-Dzikr.wav */; };
 		4E52647C228B9B3500BE3EB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E52647B228B9B3500BE3EB1 /* AppDelegate.swift */; };
 		4E52647E228B9B3500BE3EB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E52647D228B9B3500BE3EB1 /* ViewController.swift */; };
 		4E526481228B9B3500BE3EB1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E52647F228B9B3500BE3EB1 /* Main.storyboard */; };
 		4E526483228B9B3700BE3EB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E526482228B9B3700BE3EB1 /* Assets.xcassets */; };
 		4E526486228B9B3700BE3EB1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E526484228B9B3700BE3EB1 /* LaunchScreen.storyboard */; };
-		4EB496D82293887F008B492C /* repeat sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EB496D72293887F008B492C /* repeat sound.wav */; };
 		4EB496E02295A4BD008B492C /* water sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4EB496DF2295A4BD008B492C /* water sound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4E408FC922928DE2000B4493 /* tap D-Dzikr.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "tap D-Dzikr.wav"; sourceTree = "<group>"; };
 		4E526478228B9B3500BE3EB1 /* Animation Hands On.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Animation Hands On.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E52647B228B9B3500BE3EB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E52647D228B9B3500BE3EB1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -26,7 +23,6 @@
 		4E526482228B9B3700BE3EB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E526485228B9B3700BE3EB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E526487228B9B3700BE3EB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4EB496D72293887F008B492C /* repeat sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "repeat sound.wav"; sourceTree = "<group>"; };
 		4EB496DF2295A4BD008B492C /* water sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "water sound.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -44,8 +40,6 @@
 		4E408FC822928DAC000B4493 /* Sound Files */ = {
 			isa = PBXGroup;
 			children = (
-				4E408FC922928DE2000B4493 /* tap D-Dzikr.wav */,
-				4EB496D72293887F008B492C /* repeat sound.wav */,
 				4EB496DF2295A4BD008B492C /* water sound.wav */,
 			);
 			path = "Sound Files";
@@ -141,8 +135,6 @@
 			files = (
 				4E526486228B9B3700BE3EB1 /* LaunchScreen.storyboard in Resources */,
 				4EB496E02295A4BD008B492C /* water sound.wav in Resources */,
-				4E408FCA22928DE2000B4493 /* tap D-Dzikr.wav in Resources */,
-				4EB496D82293887F008B492C /* repeat sound.wav in Resources */,
 				4E526483228B9B3700BE3EB1 /* Assets.xcassets in Resources */,
 				4E526481228B9B3500BE3EB1 /* Main.storyboard in Resources */,
 			);

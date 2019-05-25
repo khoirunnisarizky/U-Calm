@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background U-Calm" translatesAutoresizingMaskIntoConstraints="NO" id="vLF-DS-bDK">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background launch" translatesAutoresizingMaskIntoConstraints="NO" id="vLF-DS-bDK">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="U-calm logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZhS-lh-H3N">
-                                <rect key="frame" x="132" y="384" width="150" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo Calm-U View" translatesAutoresizingMaskIntoConstraints="NO" id="ZhS-lh-H3N">
+                                <rect key="frame" x="119.5" y="384" width="175" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="0cU-0o-VeZ"/>
-                                    <constraint firstAttribute="width" constant="150" id="cgV-q3-PV0"/>
+                                    <constraint firstAttribute="width" constant="175" id="cgV-q3-PV0"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -47,7 +47,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="U-calm logo" width="500" height="214"/>
-        <image name="background U-Calm" width="500" height="1082"/>
+        <image name="Logo Calm-U View" width="500" height="213"/>
+        <image name="background launch" width="500" height="1082"/>
     </resources>
 </document>
